@@ -10,7 +10,7 @@ To get your own appID's you will need to create a Photon account and create a ne
 ## Installation
 1. Install BepInEx, and run the game once to generate the BepInEx folder.
 2. Install the [Virality](https://thunderstore.io/c/content-warning/p/MaxWasUnavailable/Virality/) mod. (If you want to play with 5+ people in content warning.)
-3. Download the latest release DLL of Self Sufficient from the [Releases](https://github.com/C0mputery/SelfSufficient/releases) page.
+3. Download the latest release dll of Self Sufficient from the [Releases](https://github.com/C0mputery/SelfSufficient/releases) page.
 4. Put the dll into the plugins folder in the BepInEx folder.
 5. Run the game once to generate the config file.
 6. Edit the config file with your own appID's. (See [Configuration](#Configuration) for more information.)
