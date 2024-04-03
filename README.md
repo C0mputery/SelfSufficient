@@ -28,3 +28,4 @@ You will need to edit this file with your own appID's. To get these you will nee
 6. To chose the server type you will need to select "Voice" from the "Select Photon SDK" dropdown.
 7. Once you have created the apps you will need to copy the respective appID's into the config file	.
 8. After you have done this you can save and close the file.
+
