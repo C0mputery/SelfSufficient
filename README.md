@@ -1,4 +1,6 @@
 # Self Sufficient
+***THIS MAY CAUSE YOUR PHOTON ACCOUNT TO BE TERMINATED USE AT YOUR OWN RISK***
+
 ***TO BE CLEAR THE [VIRALITY](https://thunderstore.io/c/content-warning/p/MaxWasUnavailable/Virality/) MOD IS REQUIRED IF YOU WANT TO HAVE 5+ PLAYER MATCHES WORK WITHIN CONTENT WARNING.***
 
 Photon has put a cap onto landfalls Pun/Voice server instance that only allows for matches of 4 people or less to be made.
