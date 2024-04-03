@@ -14,7 +14,8 @@ To get your own appID's you will need to create a Photon account and create a ne
 4. Put the dll into the plugins folder in the BepInEx folder.
 5. Run the game once to generate the config file.
 6. Edit the config file with your own appID's. (See [Configuration](#Configuration) for more information.)
-7. That's it!
+7. Make sure every user you want to play with shares the same config file.
+8. That's it!
 
 ## Configuration
 The config file is located in the BepInEx\config folder and is called SelfSufficient.cfg.
