@@ -1,5 +1,5 @@
 # Self Sufficient
-***TO BE CLEAR THE VIRALITY MOD IS REQUIRED IF YOU WANT TO HAVE 5+ PLAYER MATCHES WORK WITHIN CONTENT WARNING.***
+***TO BE CLEAR THE [VIRALITY](https://thunderstore.io/c/content-warning/p/MaxWasUnavailable/Virality/) MOD IS REQUIRED IF YOU WANT TO HAVE 5+ PLAYER MATCHES WORK WITHIN CONTENT WARNING.***
 
 Photon has put a cap onto landfalls Pun/Voice server instance that only allows for matches of 4 people or less to be made.
 This causes issues with the Virality mod when larger than 4 player lobbys are used as it cannot start a lobby.
