@@ -11,10 +11,10 @@ namespace SelfSufficient
             // Plugin startup logic
             Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");
 
-            string PunAppID = Config.Bind("Settings", "Pun AppID or IP", "", "The Photon AppID").Value;
+            string PunAppID = Config.Bind("Settings", "PUN AppID", "", "The Photon AppID").Value;
             if (!PunAppID.IsNullOrWhiteSpace()) { PhotonNetwork.PhotonServerSettings.AppSettings.AppIdRealtime = PunAppID; }
 
-            string VoiceAppID = Config.Bind("Settings", "Voice AppID", "", "The Voice AppID").Value;
+            string VoiceAppID = Config.Bind("Settings", "VOICE AppID", "", "The Voice AppID").Value;
             if (!VoiceAppID.IsNullOrWhiteSpace()) { PhotonNetwork.PhotonServerSettings.AppSettings.AppIdVoice = VoiceAppID; }
         }
     }
