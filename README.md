@@ -25,8 +25,10 @@ You will need to edit this file with your own appID's. To get these you will nee
 2. Once logged in you will need to create 2 new apps. This is done by clicking on the "Create a new App" button.
 3. The first app will be for the Pun server. This is the appID that is used for the server that the game connects to	.
 4. To chose the server type you will need to select "Pun" from the "Select Photon SDK" dropdown.
-5. The second app will be for the Voice server. This is the appID that is used for the voice chat that the game uses.
-6. To chose the server type you will need to select "Voice" from the "Select Photon SDK" dropdown.
-7. Once you have created the apps you will need to copy the respective appID's into the config file	.
-8. After you have done this you can save and close the file.
+5. Then scroll down and press the Create button.
+6. The second app will be for the Voice server. This is the appID that is used for the voice chat that the game uses.
+7. To chose the server type you will need to select "Voice" from the "Select Photon SDK" dropdown.
+8. Then scroll down and press the Create button.
+9. Once you have created the apps you will need to copy the respective appID's into the config file	.
+10. After you have done this you can save and close the file.
 
