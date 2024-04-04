@@ -1,6 +1,6 @@
 # Self Sufficient
 ## ***THIS MAY CAUSE YOUR PHOTON ACCOUNT TO BE TERMINATED USE AT YOUR OWN RISK***
-There is no proof of a termination even happening becuse of this mod though.
+There is no proof of a termination even happening because of this mod though.
 
 ***TO BE CLEAR THE [VIRALITY](https://thunderstore.io/c/content-warning/p/MaxWasUnavailable/Virality/) MOD IS REQUIRED IF YOU WANT TO HAVE 5+ PLAYER MATCHES WORK WITHIN CONTENT WARNING.***
 
