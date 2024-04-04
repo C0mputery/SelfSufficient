@@ -5,10 +5,10 @@
 
 Photon has put a cap onto landfalls Pun/Voice server instance that only allows for matches of 4 people or less to be made.
 This causes issues with the Virality mod when larger than 4 player lobbys are used as it cannot start a lobby.
-What this mod does is it allows you, as the user, to replace the Photon appID's that the game uses with your own.
-This is done by changing 2 values within the config (*RootGameDirectory*\BepInEx\config\SelfSufficient.cfg) to your own appID's.
-To get your own appID's you will need to create a Photon account and create a new app. This is a simple process and is free.
-These free instances allow for 16 player lobbys.
+What this mod does is it allows you, as the user, to replace the Photon appID that the game uses with your own.
+This is done by changing 2 values within the config (*RootGameDirectory*\BepInEx\config\SelfSufficient.cfg) to your own appID.
+To get your own appID you will need to create a Photon account and create a new app. This is a simple process and is free.
+These free instances allow for 16 player matches.
 
 ## Installation
 1. Install BepInEx, and run the game once to generate the BepInEx folder.
