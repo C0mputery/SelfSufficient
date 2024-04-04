@@ -16,23 +16,18 @@ These free instances allow for 16 player lobbys.
 3. Download the latest release dll of Self Sufficient from the [Releases](https://github.com/C0mputery/SelfSufficient/releases) page.
 4. Put the dll into the plugins folder in the BepInEx folder.
 5. Run the game once to generate the config file.
-6. Edit the config file with your own appID's. (See [Configuration](#Configuration) for more information.)
+6. Edit the config file with your own appID. (See [Configuration](#Configuration) for more information.)
 7. Make sure every user you want to play with shares the same config file and has this mod.
 8. Make sure to restart your game if you have it open already.
 9. That's it!
 
 ## Configuration
 The config file is located in the BepInEx\config folder and is called SelfSufficient.cfg.
-You will need to edit this file with your own appID's. To get these you will need to create a Photon account and create a new app.
+You will need to edit this file with your own appID. To get these you will need to create a Photon account and create a new app.
 
 1. To make/login to a photon account go to [Photon](https://id.photonengine.com/account/).
-2. Once logged in you will need to create 2 new apps. This is done by clicking on the "Create a new App" button.
-3. The first app will be for the Pun server. This is the appID that is used for the server that the game connects to	.
-4. To chose the server type you will need to select "Pun" from the "Select Photon SDK" dropdown.
+2. Once logged in you will need to create one new app. This is done by clicking on the "Create a new App" button.
+4. Select "Pun" from the "Select Photon SDK" dropdown.
 5. Then scroll down and press the Create button.
-6. The second app will be for the Voice server. This is the appID that is used for the voice chat that the game uses.
-7. To chose the server type you will need to select "Voice" from the "Select Photon SDK" dropdown.
-8. Then scroll down and press the Create button.
-9. Once you have created the apps you will need to copy the respective appID's into the config file	.
+9. Once you have created the app you will need to copy the appID into the config file. The AppID should be put down for both Pun and Voice.
 10. After you have done this you can save and close the file.
-
