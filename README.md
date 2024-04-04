@@ -8,6 +8,7 @@ This causes issues with the Virality mod when larger than 4 player lobbys are us
 What this mod does is it allows you, as the user, to replace the Photon appID's that the game uses with your own.
 This is done by changing 2 values within the config (*RootGameDirectory*\BepInEx\config\SelfSufficient.cfg) to your own appID's.
 To get your own appID's you will need to create a Photon account and create a new app. This is a simple process and is free.
+These free instances allow for 16 player lobbys.
 
 ## Installation
 1. Install BepInEx, and run the game once to generate the BepInEx folder.
@@ -16,7 +17,7 @@ To get your own appID's you will need to create a Photon account and create a ne
 4. Put the dll into the plugins folder in the BepInEx folder.
 5. Run the game once to generate the config file.
 6. Edit the config file with your own appID's. (See [Configuration](#Configuration) for more information.)
-7. Make sure every user you want to play with shares the same config file.
+7. Make sure every user you want to play with shares the same config file and has this mod.
 8. That's it!
 
 ## Configuration
