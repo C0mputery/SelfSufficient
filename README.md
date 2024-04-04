@@ -17,7 +17,7 @@ These free instances allow for 16 player lobbys.
 4. Put the dll into the plugins folder in the BepInEx folder.
 5. Run the game once to generate the config file.
 6. Edit the config file with your own appID. (See [Configuration](#Configuration) for more information.)
-7. Make sure every user you want to play with shares the same config file and has this mod.
+7. **Make sure everybody you are playing with has the mod installed with the same config file.**
 8. Make sure to restart your game if you have it open already.
 9. That's it!
 
