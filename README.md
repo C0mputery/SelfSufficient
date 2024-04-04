@@ -12,6 +12,8 @@ To get your own appID you will need to create a Photon account and create a new 
 These free instances allow for 16 player matches.
 
 ## Installation
+- [Video Tutoral](https://youtu.be/NEGl5-3arw0?si=1oO0xCXZN2-QDdxL) Thank you Anthony for making this!
+
 1. Install BepInEx, and run the game once to generate the BepInEx folder.
 2. Install the [Virality](https://thunderstore.io/c/content-warning/p/MaxWasUnavailable/Virality/) mod. (If you want to play with 5+ people in content warning.)
 3. Download the latest release dll of Self Sufficient from the [Releases](https://github.com/C0mputery/SelfSufficient/releases) page.
