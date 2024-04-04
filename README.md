@@ -18,7 +18,8 @@ These free instances allow for 16 player lobbys.
 5. Run the game once to generate the config file.
 6. Edit the config file with your own appID's. (See [Configuration](#Configuration) for more information.)
 7. Make sure every user you want to play with shares the same config file and has this mod.
-8. That's it!
+8. Make sure to restart your game if you have it open already.
+9. That's it!
 
 ## Configuration
 The config file is located in the BepInEx\config folder and is called SelfSufficient.cfg.
