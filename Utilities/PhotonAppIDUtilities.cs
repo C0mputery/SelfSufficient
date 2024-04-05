@@ -1,4 +1,5 @@
 ﻿using Photon.Pun;
+using Photon.Realtime;
 
 namespace SelfSufficient.Utilities
 {
@@ -41,6 +42,9 @@ namespace SelfSufficient.Utilities
 
             CurrentPunAppID = PunAppID;
             CurrentVoiceAppID = string.IsNullOrWhiteSpace(VoiceAppID) ? PunAppID : VoiceAppID;
+
+            // Prevents auth issues when switching AppIDs
+            PhotonNetwork.AuthValues.AuthType = IsUsingDefaultAppIDs() ? CustomAuthenticationType.Steam : CustomAuthenticationType.None;
 
             // Force a disconnect and reconnect to update the AppIDs
             PhotonNetwork.Disconnect();
