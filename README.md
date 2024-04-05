@@ -1,6 +1,6 @@
 # Self Sufficient
 
-##***TO BE CLEAR THE [VIRALITY](https://thunderstore.io/c/content-warning/p/MaxWasUnavailable/Virality/) MOD IS REQUIRED IF YOU WANT TO HAVE 5+ PLAYER MATCHES WORK WITHIN CONTENT WARNING.***
+## ***TO BE CLEAR THE [VIRALITY](https://thunderstore.io/c/content-warning/p/MaxWasUnavailable/Virality/) MOD IS REQUIRED IF YOU WANT TO HAVE 5+ PLAYER MATCHES WORK WITHIN CONTENT WARNING.***
 
 ## Why This Mod Is Needed
 Photon has put a cap onto landfalls Pun/Voice server instances that only allows for matches of 4 people or less to be made.
