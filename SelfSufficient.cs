@@ -23,8 +23,8 @@ namespace SelfSufficient
 
             // Config
             SelfSufficientConfigFile = base.Config;
-            SelfSufficientConfigFile?.Bind("Settings", "AppID for PUN", "", "The PUN AppID (Only needed for the host)");
-            SelfSufficientConfigFile?.Bind("Settings", "AppID for VOICE", "", "The VOICE AppID (Defaults to the PUN AppID)");
+            SelfSufficientConfigFile?.Bind("Settings", "AppID for PUN", "", "The PUN AppID (Only needed for the host)"); // This creates the config file if it doesn't exist
+            SelfSufficientConfigFile?.Bind("Settings", "AppID for VOICE", "", "The VOICE AppID (Defaults to the PUN AppID)"); // This creates the config file if it doesn't exist
             SelfSufficientLogger.LogInfo("Config file is loaded!");
 
 

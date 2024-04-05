@@ -10,12 +10,6 @@ namespace SelfSufficient.Utilities
         // Singleton, but not really
         private static PhotonCallbackUtility? m_Instance;
 
-        // Event for when the master server is connected
-        public static event Action? OnMasterServerConnected;
-
-        // Stops the connection process if we're already connected
-        public static bool TryingToConnectToMasterServer { get; private set; } = false;
-
         // Fake singleton pattern
         public static void CreateInstace()
         {
@@ -33,21 +27,23 @@ namespace SelfSufficient.Utilities
             OnMasterServerConnected?.Invoke();
         }
 
-        // This is the event that will be called when the master server is connected
-        // Wee bit of a hack, but it works
+        // Event for when the master server is connected
+        public static event Action? OnMasterServerConnected;
+
+        // Stops the connection process if we're already connected
+        public static bool TryingToConnectToMasterServer { get; private set; } = false;
+
+        // I honestly hate this
+        // Rejoin the lobby after the master server is connected
         public static void RejoinLobbyOnMasterServerConnected(SteamLobbyHandler steamLobbyHandler, CSteamID lobbyID)
         {
-            // If tyring to connect already skip (this should never happen)
             if (TryingToConnectToMasterServer) { return; }
 
-            // Most jank code ever or smartest solution, who knows.
-            Action? rejoinAction = null;
-            rejoinAction = () => { HandleRejoinOnMasterServerConnected(steamLobbyHandler, lobbyID, rejoinAction); };
+            void rejoinAction() { HandleRejoinOnMasterServerConnected(steamLobbyHandler, lobbyID, rejoinAction); }
             OnMasterServerConnected += rejoinAction;
             TryingToConnectToMasterServer = true;
             SelfSufficient.SelfSufficientLogger?.LogInfo("Waiting for master server connection to rejoin lobby");
         }
-
         public static void HandleRejoinOnMasterServerConnected(SteamLobbyHandler steamLobbyHandler, CSteamID lobbyID, Action? rejoinAction)
         {
             SelfSufficient.SelfSufficientLogger?.LogInfo($"Rejoining lobby {lobbyID} after AppID update");
@@ -56,26 +52,21 @@ namespace SelfSufficient.Utilities
             TryingToConnectToMasterServer = false;
         }
 
-        // This is the event that will be called when the master server is connected
-        // Wee bit of a hack, but it works
-        public static void ReHostOnMasterServerConnected(MainMenuHandler mainMenuHandler, int saveIndex)
+        // Rehost the save after the master server is connected
+        public static void RehostOnMasterServerConnected(MainMenuHandler mainMenuHandler, int saveIndex)
         {
-            // If tyring to connect already skip (this should never happen)
             if (TryingToConnectToMasterServer) { return; }
 
-            // Most jank code ever or smartest solution, who knows.
-            Action? rejoinAction = null;
-            rejoinAction = () => { HandleOnMasterServerConnected(mainMenuHandler, saveIndex, rejoinAction); };
-            OnMasterServerConnected += rejoinAction;
+            void rehostAction() { HandleOnMasterServerConnected(mainMenuHandler, saveIndex, rehostAction); }
+            OnMasterServerConnected += rehostAction;
             TryingToConnectToMasterServer = true;
             SelfSufficient.SelfSufficientLogger?.LogInfo("Waiting for master server connection to rejoin lobby");
         }
-
-        public static void HandleOnMasterServerConnected(MainMenuHandler mainMenuHandler, int saveIndex, Action? rejoinAction)
+        public static void HandleOnMasterServerConnected(MainMenuHandler mainMenuHandler, int saveIndex, Action? rehostAction)
         {
             SelfSufficient.SelfSufficientLogger?.LogInfo($"Rehosting save {saveIndex} after AppID update");
             mainMenuHandler.Host(saveIndex);
-            OnMasterServerConnected -= rejoinAction;
+            OnMasterServerConnected -= rehostAction;
             TryingToConnectToMasterServer = false;
         }
     }

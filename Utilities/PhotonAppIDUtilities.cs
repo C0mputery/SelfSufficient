@@ -31,12 +31,12 @@ namespace SelfSufficient.Utilities
         }
 
         // Default AppIDs
-        internal static string DefaultPunAppID { get; private set; } = PhotonNetwork.PhotonServerSettings.AppSettings.AppIdRealtime;
-        internal static string DefaultVoiceAppID { get; private set; } = PhotonNetwork.PhotonServerSettings.AppSettings.AppIdVoice;
         internal static bool IsUsingDefaultAppIDs
         {
             get { return CurrentPunAppID == DefaultPunAppID && CurrentVoiceAppID == DefaultVoiceAppID; }
         }
+        internal static string DefaultPunAppID { get; private set; } = PhotonNetwork.PhotonServerSettings.AppSettings.AppIdRealtime;
+        internal static string DefaultVoiceAppID { get; private set; } = PhotonNetwork.PhotonServerSettings.AppSettings.AppIdVoice;
 
         // Current AppIDs
         internal static string CurrentPunAppID

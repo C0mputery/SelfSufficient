@@ -29,7 +29,7 @@ namespace SelfSufficient.Patches
             {
                 SelfSufficient.SelfSufficientLogger?.LogInfo("Updating AppIDs to personal values");
                 PhotonAppIDUtilities.UpdateAppIDs(PhotonAppIDUtilities.OverridePunAppID!, PhotonAppIDUtilities.OverrideVoiceAppID!, true);
-                PhotonCallbackUtility.ReHostOnMasterServerConnected(__instance, saveIndex);
+                PhotonCallbackUtility.RehostOnMasterServerConnected(__instance, saveIndex);
                 return false;
             }
             return true;
