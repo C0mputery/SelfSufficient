@@ -18,7 +18,7 @@ Additionally this mod will automatically sync the appID of the host when a lobby
 4. Done! That's all that's needed if you are not hosting the mod.
 
 ## Installation for host.
-***HOSTING WITH YOUR OWN APPID MAY CAUSE YOUR PHOTON ACCOUNT LINKED WITH SAID APPID TO BE TERMINATED USE AT YOUR OWN RISK*** </br>
+***HOSTING WITH YOUR OWN APPID MAY CAUSE YOUR PHOTON ACCOUNT LINKED WITH SAID APPID TO BE TERMINATED, USE AT YOUR OWN RISK*** </br>
 So far no account has been terminated because of this mod.
 1. Do everything that the client does.
 2. Put the dll into the plugins folder in the BepInEx folder.
