@@ -19,7 +19,7 @@ namespace SelfSufficient.Patches
                 PhotonAppIDUtilities.PersonalyOverriddenAppIDs = true;
             }
 
-            if (!PhotonAppIDUtilities.PersonalyOverriddenAppIDs)
+            if (!PhotonAppIDUtilities.PersonalyOverriddenAppIDs && PhotonAppIDUtilities.IsUsingDefaultAppIDs())
             {
                 SelfSufficient.SelfSufficientLogger?.LogInfo("Updating AppIDs to default values as they were not overridden");
                 PhotonAppIDUtilities.AttemptAppIDUpdate(PhotonAppIDUtilities.DefaultPunAppID, PhotonAppIDUtilities.DefaultVoiceAppID);

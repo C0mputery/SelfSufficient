@@ -31,6 +31,7 @@ namespace SelfSufficient.Utilities
         {
             if (string.IsNullOrWhiteSpace(PunAppID) || (PunAppID == CurrentPunAppID && VoiceAppID == CurrentVoiceAppID))
             {
+                SelfSufficient.SelfSufficientLogger?.LogInfo($"Updated AppIDs to {PunAppID} and {VoiceAppID}");
                 return false; // Cannot update the AppIDs
             }
 
@@ -44,6 +45,12 @@ namespace SelfSufficient.Utilities
             SelfSufficient.SelfSufficientLogger?.LogInfo($"Updated AppIDs to {PunAppID} and {VoiceAppID}");
 
             return true;
+        }
+
+        internal static bool IsUsingDefaultAppIDs()
+        {
+            if (PersonalyOverriddenAppIDs) { return false; }
+            return CurrentPunAppID == DefaultPunAppID && CurrentVoiceAppID == DefaultVoiceAppID;
         }
     }
 }

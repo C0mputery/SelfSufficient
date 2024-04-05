@@ -15,7 +15,7 @@ namespace SelfSufficient.Patches
         {
             string? realtimeAppId = SteamMatchmaking.GetLobbyData(lobbyID, SelfSufficient.PUN_APP_ID_KEY);
             string? voiceAppId = SteamMatchmaking.GetLobbyData(lobbyID, SelfSufficient.VOICE_APP_ID_KEY);
-            if (PhotonAppIDUtilities.AttemptAppIDUpdate(realtimeAppId, voiceAppId))
+            if (PhotonAppIDUtilities.AttemptAppIDUpdate(realtimeAppId, voiceAppId) && !PhotonCallbackUtility.TryingToConnectToMasterServer)
             {
                 SelfSufficient.SelfSufficientLogger?.LogInfo($"Updated AppIDs to {realtimeAppId} and {voiceAppId}");
                 // Prevent stopping the connection process if we're already connected
