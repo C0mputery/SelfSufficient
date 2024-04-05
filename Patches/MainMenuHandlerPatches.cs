@@ -12,6 +12,8 @@ namespace SelfSufficient.Patches
         [HarmonyPatch(nameof(MainMenuHandler.ConnectToPhoton))]
         private static void ConnectToPhotonPatch()
         {
+            PhotonNetwork.ConnectToRegion(SelfSufficient.SelfSufficientConfigFile?.Bind("Settings", "Region", "us", "https://doc.photonengine.com/pun/current/connection-and-authentication/regions)")?.Value);
+
             if (!PhotonAppIDUtilities.IsUsingDefaultAppIDs)
             {
                 SelfSufficient.SelfSufficientLogger?.LogInfo("Updating AppIDs back to default values");
