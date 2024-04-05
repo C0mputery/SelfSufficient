@@ -17,7 +17,7 @@ Additionally this mod will automatically sync the appID of the host when a lobby
 ## Installation for client (This is without using a mod manager. If you use something like R2ModMan just install it like anything else).
 1. Install BepInEx, and run the game once to generate the BepInEx folder.
 2. Install the [Virality](https://thunderstore.io/c/content-warning/p/MaxWasUnavailable/Virality/) mod.
-3. Download the latest release dll of Self Sufficient from the [Releases](https://github.com/C0mputery/SelfSufficient/releases) page on GitHub or ThunderStore[https://thunderstore.io/c/content-warning/p/Computery/Self_Sufficient/].
+3. Download the latest release dll of Self Sufficient from the [Releases](https://github.com/C0mputery/SelfSufficient/releases) page on GitHub or [ThunderStore](https://thunderstore.io/c/content-warning/p/Computery/Self_Sufficient/).
 4. Done! That's all that's needed if you are not hosting the mod.
 
 ## Installation for host.
