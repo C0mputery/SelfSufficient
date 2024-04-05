@@ -37,6 +37,7 @@ namespace SelfSufficient.Utilities
         // Wee bit of a hack, but it works
         public static void RejoinLobbyOnMasterServerConnected(SteamLobbyHandler steamLobbyHandler, CSteamID lobbyID)
         {
+            // If tyring to connect already skip (this should never happen)
             if (TryingToConnectToMasterServer) { return; }
 
             // Most jank code ever or smartest solution, who knows.
