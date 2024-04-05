@@ -42,16 +42,39 @@ namespace SelfSufficient.Utilities
 
             // Most jank code ever or smartest solution, who knows.
             Action? rejoinAction = null;
-            rejoinAction = () => { HandleOnMasterServerConnected(steamLobbyHandler, lobbyID, rejoinAction); };
+            rejoinAction = () => { HandleRejoinOnMasterServerConnected(steamLobbyHandler, lobbyID, rejoinAction); };
             OnMasterServerConnected += rejoinAction;
             TryingToConnectToMasterServer = true;
             SelfSufficient.SelfSufficientLogger?.LogInfo("Waiting for master server connection to rejoin lobby");
         }
 
-        public static void HandleOnMasterServerConnected(SteamLobbyHandler steamLobbyHandler, CSteamID lobbyID, Action? rejoinAction)
+        public static void HandleRejoinOnMasterServerConnected(SteamLobbyHandler steamLobbyHandler, CSteamID lobbyID, Action? rejoinAction)
         {
             SelfSufficient.SelfSufficientLogger?.LogInfo($"Rejoining lobby {lobbyID} after AppID update");
             steamLobbyHandler.JoinLobby(lobbyID);
+            OnMasterServerConnected -= rejoinAction;
+            TryingToConnectToMasterServer = false;
+        }
+
+        // This is the event that will be called when the master server is connected
+        // Wee bit of a hack, but it works
+        public static void ReHostOnMasterServerConnected(MainMenuHandler mainMenuHandler, int saveIndex)
+        {
+            // If tyring to connect already skip (this should never happen)
+            if (TryingToConnectToMasterServer) { return; }
+
+            // Most jank code ever or smartest solution, who knows.
+            Action? rejoinAction = null;
+            rejoinAction = () => { HandleOnMasterServerConnected(mainMenuHandler, saveIndex, rejoinAction); };
+            OnMasterServerConnected += rejoinAction;
+            TryingToConnectToMasterServer = true;
+            SelfSufficient.SelfSufficientLogger?.LogInfo("Waiting for master server connection to rejoin lobby");
+        }
+
+        public static void HandleOnMasterServerConnected(MainMenuHandler mainMenuHandler, int saveIndex, Action? rejoinAction)
+        {
+            SelfSufficient.SelfSufficientLogger?.LogInfo($"Rehosting save {saveIndex} after AppID update");
+            mainMenuHandler.Host(saveIndex);
             OnMasterServerConnected -= rejoinAction;
             TryingToConnectToMasterServer = false;
         }

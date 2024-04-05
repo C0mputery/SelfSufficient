@@ -23,7 +23,11 @@ namespace SelfSufficient.Utilities
         }
         internal static string? OverrideVoiceAppID
         {
-            get { return SelfSufficient.SelfSufficientConfigFile?.Bind("Settings", "AppID for VOICE", "", "The VOICE AppID (Defaults to the PUN AppID)").Value; }
+            get
+            {
+                string? voiceID = SelfSufficient.SelfSufficientConfigFile?.Bind("Settings", "AppID for VOICE", "", "The VOICE AppID (Defaults to the PUN AppID)").Value;
+                return string.IsNullOrWhiteSpace(voiceID) ? OverridePunAppID : voiceID;
+            }
         }
 
         // Default AppIDs
@@ -67,7 +71,10 @@ namespace SelfSufficient.Utilities
             CurrentVoiceAppID = string.IsNullOrWhiteSpace(VoiceAppID) ? PunAppID : VoiceAppID;
 
             // Prevents auth issues when switching AppIDs
-            PhotonNetwork.AuthValues.AuthType = IsUsingDefaultAppIDs ? CustomAuthenticationType.Steam : CustomAuthenticationType.None;
+            if (PhotonNetwork.AuthValues != null)
+            {
+                PhotonNetwork.AuthValues.AuthType = IsUsingDefaultAppIDs ? CustomAuthenticationType.Steam : CustomAuthenticationType.None;
+            }
 
             SelfSufficient.SelfSufficientLogger?.LogInfo($"Updated AppIDs to {PunAppID} and {VoiceAppID}");
 
