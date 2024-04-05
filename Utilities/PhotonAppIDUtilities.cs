@@ -1,5 +1,6 @@
 ﻿using Photon.Pun;
 using Photon.Realtime;
+using System;
 
 namespace SelfSufficient.Utilities
 {
@@ -70,22 +71,14 @@ namespace SelfSufficient.Utilities
             CurrentPunAppID = PunAppID;
             CurrentVoiceAppID = string.IsNullOrWhiteSpace(VoiceAppID) ? PunAppID : VoiceAppID;
 
-            // Prevents auth issues when switching AppIDs
-            if (PhotonNetwork.AuthValues != null)
-            {
-                PhotonNetwork.AuthValues.AuthType = IsUsingDefaultAppIDs ? CustomAuthenticationType.Steam : CustomAuthenticationType.None;
-            }
-
             SelfSufficient.SelfSufficientLogger?.LogInfo($"Updated AppIDs to {PunAppID} and {VoiceAppID}");
 
             if (forceReconnect)
             {
                 SelfSufficient.SelfSufficientLogger?.LogInfo("Forcing a reconnect");
+                PhotonNetwork.AuthValues = null;
                 PhotonNetwork.Disconnect();
-                if (!PhotonNetwork.ConnectUsingSettings())
-                {
-                    SelfSufficient.SelfSufficientLogger?.LogError("Failed to reconnect to the master server???");
-                }
+                PhotonNetwork.ConnectUsingSettings();
             }
         }
     }

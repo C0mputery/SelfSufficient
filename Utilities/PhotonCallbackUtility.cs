@@ -46,10 +46,11 @@ namespace SelfSufficient.Utilities
         }
         public static void HandleRejoinOnMasterServerConnected(SteamLobbyHandler steamLobbyHandler, CSteamID lobbyID, Action? rejoinAction)
         {
-            SelfSufficient.SelfSufficientLogger?.LogInfo($"Rejoining lobby {lobbyID} after AppID update");
-            steamLobbyHandler.JoinLobby(lobbyID);
+            SelfSufficient.SelfSufficientLogger?.LogInfo($"Starting lobby rejoin {lobbyID} after AppID update");
             OnMasterServerConnected -= rejoinAction;
             TryingToConnectToMasterServer = false;
+            steamLobbyHandler.JoinLobby(lobbyID);
+            SelfSufficient.SelfSufficientLogger?.LogInfo("Rejoined lobby");
         }
 
         // Rehost the save after the master server is connected
@@ -65,9 +66,10 @@ namespace SelfSufficient.Utilities
         public static void HandleOnMasterServerConnected(MainMenuHandler mainMenuHandler, int saveIndex, Action? rehostAction)
         {
             SelfSufficient.SelfSufficientLogger?.LogInfo($"Rehosting save {saveIndex} after AppID update");
-            mainMenuHandler.Host(saveIndex);
             OnMasterServerConnected -= rehostAction;
             TryingToConnectToMasterServer = false;
+            mainMenuHandler.Host(saveIndex);
+            SelfSufficient.SelfSufficientLogger?.LogInfo("Rehosted save");
         }
     }
 }

@@ -27,7 +27,6 @@ namespace SelfSufficient.Patches
             {
                 // Update the AppIDs
                 PhotonAppIDUtilities.UpdateAppIDs(punAppId, voiceAppId, true);
-                SelfSufficient.SelfSufficientLogger?.LogInfo($"Updated AppIDs to {punAppId} and {voiceAppId}");
 
                 // Prevent starting the connection process if we're already somehow connected
                 if (PhotonNetwork.IsConnectedAndReady)

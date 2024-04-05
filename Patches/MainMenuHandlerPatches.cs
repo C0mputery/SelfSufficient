@@ -8,18 +8,18 @@ namespace SelfSufficient.Patches
     [HarmonyPriority(Priority.First + 1)]
     internal static class MainMenuHandlerPatches
     {
-        [HarmonyPostfix]
+        [HarmonyPrefix]
         [HarmonyPatch(nameof(MainMenuHandler.ConnectToPhoton))]
         private static void ConnectToPhotonPatch()
         {
-            PhotonNetwork.ConnectToRegion(SelfSufficient.SelfSufficientConfigFile?.Bind("Settings", "Region", "us", "https://doc.photonengine.com/pun/current/connection-and-authentication/regions)")?.Value);
-
             if (!PhotonAppIDUtilities.IsUsingDefaultAppIDs)
             {
                 SelfSufficient.SelfSufficientLogger?.LogInfo("Updating AppIDs back to default values");
 
                 // Update the AppIDs back to the default values without reconnecting as the connection process is handled by the ConnectToPhoton method
-                PhotonAppIDUtilities.UpdateAppIDs(PhotonAppIDUtilities.DefaultPunAppID, PhotonAppIDUtilities.DefaultVoiceAppID, true);
+                PhotonAppIDUtilities.UpdateAppIDs(PhotonAppIDUtilities.DefaultPunAppID, PhotonAppIDUtilities.DefaultVoiceAppID, false);
+                PhotonNetwork.Disconnect();
+                // The connection process is handled by the ConnectToPhoton method
             }
         }
 
@@ -27,6 +27,8 @@ namespace SelfSufficient.Patches
         [HarmonyPatch(nameof(MainMenuHandler.Host))]
         private static bool HostPatch(ref MainMenuHandler __instance, int saveIndex)
         {
+            if (PhotonCallbackUtility.TryingToConnectToMasterServer) { return false; }
+
             if (PhotonAppIDUtilities.HasPersonalyOverriddenAppIDs && PhotonAppIDUtilities.CanUpdateAppID(PhotonAppIDUtilities.OverridePunAppID, PhotonAppIDUtilities.OverrideVoiceAppID))
             {
                 SelfSufficient.SelfSufficientLogger?.LogInfo("Updating AppIDs to personal values");
