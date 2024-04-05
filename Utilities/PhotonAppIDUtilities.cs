@@ -76,7 +76,7 @@ namespace SelfSufficient.Utilities
             if (forceReconnect)
             {
                 SelfSufficient.SelfSufficientLogger?.LogInfo("Forcing a reconnect");
-                PhotonNetwork.AuthValues = null;
+                PhotonNetwork.AuthValues.AuthType = IsUsingDefaultAppIDs ? CustomAuthenticationType.Steam : CustomAuthenticationType.None; 
                 PhotonNetwork.Disconnect();
                 PhotonNetwork.ConnectUsingSettings();
             }
