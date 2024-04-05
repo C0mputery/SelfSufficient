@@ -9,8 +9,12 @@ namespace SelfSufficient.Utilities
         static internal readonly string PUN_APP_ID_KEY = "PUN_APP_ID";
         static internal readonly string VOICE_APP_ID_KEY = "VOICE_APP_ID";
 
-        // Default AppIDs
+        // AppID Overrides
         internal static bool PersonalyOverriddenAppIDs = false;
+        internal static string OverridePunAppID = string.Empty;
+        internal static string OverrideVoiceAppID = string.Empty;
+
+        // Default AppIDs
         internal static string DefaultPunAppID { get; private set; } = PhotonNetwork.PhotonServerSettings.AppSettings.AppIdRealtime;
         internal static string DefaultVoiceAppID { get; private set; } = PhotonNetwork.PhotonServerSettings.AppSettings.AppIdVoice;
 
@@ -25,6 +29,7 @@ namespace SelfSufficient.Utilities
             get { return PhotonNetwork.PhotonServerSettings.AppSettings.AppIdVoice; }
             private set { PhotonNetwork.PhotonServerSettings.AppSettings.AppIdVoice = value; }
         }
+
 
         /// <summary>
         /// Attempts to update the AppIDs for PUN and Voice
@@ -45,7 +50,6 @@ namespace SelfSufficient.Utilities
 
             // Prevents auth issues when switching AppIDs
             PhotonNetwork.AuthValues.AuthType = IsUsingDefaultAppIDs() ? CustomAuthenticationType.Steam : CustomAuthenticationType.None;
-
             // Force a disconnect and reconnect to update the AppIDs
             PhotonNetwork.Disconnect();
             PhotonNetwork.ConnectUsingSettings();
@@ -55,10 +59,15 @@ namespace SelfSufficient.Utilities
             return true;
         }
 
+        // Replace with property?
         internal static bool IsUsingDefaultAppIDs()
         {
-            if (PersonalyOverriddenAppIDs) { return false; }
             return CurrentPunAppID == DefaultPunAppID && CurrentVoiceAppID == DefaultVoiceAppID;
+        }
+
+        internal static bool AreValidAppIDs(string? PunAppID)
+        {
+            return !string.IsNullOrWhiteSpace(PunAppID) && PunAppID != DefaultPunAppID;
         }
     }
 }

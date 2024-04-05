@@ -38,8 +38,8 @@ namespace SelfSufficient.Patches
             if (PhotonAppIDUtilities.PersonalyOverriddenAppIDs)
             {
                 CSteamID lobbyId = __instance.m_CurrentLobby;
-                SteamMatchmaking.SetLobbyData(lobbyId, PhotonAppIDUtilities.PUN_APP_ID_KEY, PhotonAppIDUtilities.CurrentPunAppID);
-                SteamMatchmaking.SetLobbyData(lobbyId, PhotonAppIDUtilities.VOICE_APP_ID_KEY, PhotonAppIDUtilities.CurrentVoiceAppID);
+                SteamMatchmaking.SetLobbyData(lobbyId, PhotonAppIDUtilities.PUN_APP_ID_KEY, PhotonAppIDUtilities.OverridePunAppID);
+                SteamMatchmaking.SetLobbyData(lobbyId, PhotonAppIDUtilities.VOICE_APP_ID_KEY, PhotonAppIDUtilities.OverrideVoiceAppID);
                 SelfSufficient.SelfSufficientLogger?.LogInfo($"Set AppIDs to {PhotonAppIDUtilities.CurrentPunAppID} and {PhotonAppIDUtilities.CurrentVoiceAppID}");
             }
         }

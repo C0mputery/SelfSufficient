@@ -14,15 +14,16 @@ namespace SelfSufficient.Patches
             string? punAppID = SelfSufficient.SelfSufficientConfigFile?.Bind("Settings", "AppID for PUN", "", "The PUN AppID (Only needed for the host)").Value;
             string? voiceAppID = SelfSufficient.SelfSufficientConfigFile?.Bind("Settings", "AppID for VOICE", "", "The VOICE AppID (Defaults to the PUN AppID)").Value;
             SelfSufficient.SelfSufficientLogger?.LogInfo($"Trying to updated AppIDs from config.");
-            if (PhotonAppIDUtilities.AttemptAppIDUpdate(punAppID, voiceAppID))
+            if (!string.IsNullOrWhiteSpace(punAppID))
             {
-                SelfSufficient.SelfSufficientLogger?.LogInfo($"Updated AppIDs from config");
+                PhotonAppIDUtilities.OverridePunAppID = punAppID;
+                PhotonAppIDUtilities.OverrideVoiceAppID = string.IsNullOrWhiteSpace(voiceAppID) ? punAppID : voiceAppID;
                 PhotonAppIDUtilities.PersonalyOverriddenAppIDs = true;
             }
 
-            if (!PhotonAppIDUtilities.PersonalyOverriddenAppIDs && !PhotonAppIDUtilities.IsUsingDefaultAppIDs())
+            if (!PhotonAppIDUtilities.IsUsingDefaultAppIDs())
             {
-                SelfSufficient.SelfSufficientLogger?.LogInfo("Updating AppIDs back to default values as they were not overridden by this user");
+                SelfSufficient.SelfSufficientLogger?.LogInfo("Updating AppIDs back to default values");
                 PhotonAppIDUtilities.AttemptAppIDUpdate(PhotonAppIDUtilities.DefaultPunAppID, PhotonAppIDUtilities.DefaultVoiceAppID);
             }
             return PhotonAppIDUtilities.IsUsingDefaultAppIDs() ? true : false; // We need to skip the original method if we are updating the AppIDs to our own since we don't got steam auth
