@@ -11,16 +11,16 @@ To get your own appID you will need to create a Photon account and make a new ap
 These free instances allow for upto 16 player matches.
 Additionally this mod will automatically sync the appID of the host when a lobby is joined, given both clients are using the mod.
 
-## Installation for client.
+## Installation for client (This is without using a mod manager. If you use something like R2ModMan just install it like anything else).
 1. Install BepInEx, and run the game once to generate the BepInEx folder.
 2. Install the [Virality](https://thunderstore.io/c/content-warning/p/MaxWasUnavailable/Virality/) mod.
-3. Download the latest release dll of Self Sufficient from the [Releases](https://github.com/C0mputery/SelfSufficient/releases) page on GitHub or ThunderStore [Link TDB].
+3. Download the latest release dll of Self Sufficient from the [Releases](https://github.com/C0mputery/SelfSufficient/releases) page on GitHub or ThunderStore[https://thunderstore.io/c/content-warning/p/Computery/Self_Sufficient/].
 4. Done! That's all that's needed if you are not hosting the mod.
 
 ## Installation for host.
 ***HOSTING WITH YOUR OWN APPID MAY CAUSE YOUR PHOTON ACCOUNT LINKED WITH SAID APPID TO BE TERMINATED, USE AT YOUR OWN RISK*** </br>
 So far no account has been terminated because of this mod.
-1. Do everything that the client does.
+1. Do everything that the setup client does.
 2. Put the dll into the plugins folder in the BepInEx folder.
 3. Run the game once to generate the config file.
 4. Edit the config file with your own appID. (See [Configuration](#Configuration) for more information.)
