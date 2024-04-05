@@ -1,36 +1,44 @@
 # Self Sufficient
-## ***THIS MAY CAUSE YOUR PHOTON ACCOUNT TO BE TERMINATED USE AT YOUR OWN RISK***
-There is no proof of a termination even happening because of this mod though.
 
-***TO BE CLEAR THE [VIRALITY](https://thunderstore.io/c/content-warning/p/MaxWasUnavailable/Virality/) MOD IS REQUIRED IF YOU WANT TO HAVE 5+ PLAYER MATCHES WORK WITHIN CONTENT WARNING.***
+##***TO BE CLEAR THE [VIRALITY](https://thunderstore.io/c/content-warning/p/MaxWasUnavailable/Virality/) MOD IS REQUIRED IF YOU WANT TO HAVE 5+ PLAYER MATCHES WORK WITHIN CONTENT WARNING.***
 
-Photon has put a cap onto landfalls Pun/Voice server instance that only allows for matches of 4 people or less to be made.
-This causes issues with the Virality mod when larger than 4 player lobbys are used as it cannot start a lobby.
-What this mod does is it allows you, as the user, to replace the Photon appID that the game uses with your own.
-This is done by changing 2 values within the config (*RootGameDirectory*\BepInEx\config\SelfSufficient.cfg) to your own appID.
-To get your own appID you will need to create a Photon account and create a new app. This is a simple process and is free.
-These free instances allow for 16 player matches.
+## Why This Mod Is Needed
+Photon has put a cap onto landfalls Pun/Voice server instances that only allows for matches of 4 people or less to be made.
+This causes issues with the Virality mod when matches larger than 4 player are used, since it cant make you know make the match.
+What this mod does is allows for you, as the user, to replace the Photon appID that the game uses with one of your own.
+This is done by changing a value within the config to your own appID.
+To get your own appID you will need to create a Photon account and make a new app. This is a simple process and is free.
+These free instances allow for upto 16 player matches.
+Additionally this mod will automatically sync the appID of the host when a lobby is joined, given both clients are using the mod.
 
-## Installation
-- [Video Tutoral](https://youtu.be/NEGl5-3arw0?si=1oO0xCXZN2-QDdxL) Thank you Anthony for making this!
-
+## Installation for client.
 1. Install BepInEx, and run the game once to generate the BepInEx folder.
-2. Install the [Virality](https://thunderstore.io/c/content-warning/p/MaxWasUnavailable/Virality/) mod. (If you want to play with 5+ people in content warning.)
-3. Download the latest release dll of Self Sufficient from the [Releases](https://github.com/C0mputery/SelfSufficient/releases) page.
-4. Put the dll into the plugins folder in the BepInEx folder.
-5. Run the game once to generate the config file.
-6. Edit the config file with your own appID. (See [Configuration](#Configuration) for more information.)
-7. ***Make sure everybody you are playing with has the mod installed, and is using the same config file.***
-8. Make sure to restart your game if you have it open already.
-9. That's it!
+2. Install the [Virality](https://thunderstore.io/c/content-warning/p/MaxWasUnavailable/Virality/) mod.
+3. Download the latest release dll of Self Sufficient from the [Releases](https://github.com/C0mputery/SelfSufficient/releases) page on GitHub or ThunderStore [Link TDB].
+4. Done! That's all that's needed if you are not hosting the mod.
+
+## Installation for host.
+***HOSTING WITH YOUR OWN APPID MAY CAUSE YOUR PHOTON ACCOUNT LINKED WITH SAID APPID TO BE TERMINATED USE AT YOUR OWN RISK*** </br>
+So far no account has been terminated because of this mod.
+1. Do everything that the client does.
+2. Put the dll into the plugins folder in the BepInEx folder.
+3. Run the game once to generate the config file.
+4. Edit the config file with your own appID. (See [Configuration](#Configuration) for more information.)
+6. Make sure to restart your game or reload the menu.
+7. That's it, have fun hosting 5+ player games.
 
 ## Configuration
-The config file is located in the BepInEx\config folder and is called SelfSufficient.cfg.
-You will need to edit this file with your own appID. To get these you will need to create a Photon account and create a new app.
+The config file is located at *RootGameDirectory*\BepInEx\config\Computery.SelfSufficient.cfg.
+You will need to edit this file and add your own appID. To get these you will need to create a Photon account and make a new app.
 
-1. To make/login to a photon account go to [Photon](https://id.photonengine.com/account/).
+1. To make/login to a photon account go to [Photon Signin](https://id.photonengine.com/account/).
 2. Once logged in you will need to create one new app. This is done by clicking on the "Create a new App" button.
 4. Select "Pun" from the "Select Photon SDK" dropdown.
-5. Then scroll down and press the Create button.
-9. Once you have created the app you will need to copy the appID into the config file. The AppID should be put down for both Pun and Voice.
+5. Then scroll down the page and press the "Create" button.
+9. Once you have created the appID you will need to copy it into the config file. The AppID should fill in the Pun section. It is unnecessary to fill in the voice section that as that is handled automatically.
 10. After you have done this you can save and close the file.
+11. Restart the game and you can now host 5+ player games.
+
+# Special Thanks
+- [Anthony Stainton](https://github.com/ItzRock): Tech Support Help! Would not have been able to finish this if I had to help every person in the, in addition they made an excellent tutorial video.
+- [Bobbie](https://github.com/legoandmars/Virality): Original idea for syncing AppID's over the Steam Lobby.
