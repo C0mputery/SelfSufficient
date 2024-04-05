@@ -12,10 +12,11 @@ namespace SelfSufficient.Patches
         [HarmonyPatch(nameof(MainMenuUIHandler.Start))]
         private static void StartPatch()
         {
-            string? PunAppID = SelfSufficient.SelfSufficientConfigFile?.Bind("Settings", "AppID for PUN", "", "The PUN AppID (Only needed for the host)").Value;
-            string? VoiceAppID = SelfSufficient.SelfSufficientConfigFile?.Bind("Settings", "AppID for VOICE", "", "The VOICE AppID (Defaults to the PUN AppID)").Value;
-            if (PhotonAppIDUtilities.AttemptAppIDUpdate(PunAppID, VoiceAppID))
+            string? punAppID = SelfSufficient.SelfSufficientConfigFile?.Bind("Settings", "AppID for PUN", "", "The PUN AppID (Only needed for the host)").Value;
+            string? voiceAppID = SelfSufficient.SelfSufficientConfigFile?.Bind("Settings", "AppID for VOICE", "", "The VOICE AppID (Defaults to the PUN AppID)").Value;
+            if (PhotonAppIDUtilities.AttemptAppIDUpdate(punAppID, voiceAppID))
             {
+                SelfSufficient.SelfSufficientLogger?.LogInfo($"Updated AppIDs to {punAppID} and {voiceAppID}");
                 PhotonAppIDUtilities.PersonalyOverriddenAppIDs = true;
             }
 

@@ -4,6 +4,10 @@ namespace SelfSufficient.Utilities
 {
     internal static class PhotonAppIDUtilities
     {
+        // Steam Lobby Data Keys
+        static internal readonly string PUN_APP_ID_KEY = "PUN_APP_ID";
+        static internal readonly string VOICE_APP_ID_KEY = "VOICE_APP_ID";
+
         // Default AppIDs
         internal static bool PersonalyOverriddenAppIDs = false;
         internal static string DefaultPunAppID { get; private set; } = PhotonNetwork.PhotonServerSettings.AppSettings.AppIdRealtime;
@@ -31,7 +35,7 @@ namespace SelfSufficient.Utilities
         {
             if (string.IsNullOrWhiteSpace(PunAppID) || (PunAppID == CurrentPunAppID && VoiceAppID == CurrentVoiceAppID))
             {
-                SelfSufficient.SelfSufficientLogger?.LogInfo($"Updated AppIDs to {PunAppID} and {VoiceAppID}");
+                SelfSufficient.SelfSufficientLogger?.LogInfo($"Failed to update AppIDs to {PunAppID} and {VoiceAppID}, current AppIDs are {CurrentPunAppID} and {CurrentVoiceAppID}");
                 return false; // Cannot update the AppIDs
             }
 

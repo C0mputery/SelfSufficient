@@ -14,9 +14,6 @@ namespace SelfSufficient
         static internal ManualLogSource? SelfSufficientLogger;
         static internal ConfigFile? SelfSufficientConfigFile;
 
-        static internal readonly string PUN_APP_ID_KEY = "PUN_APP_ID";
-        static internal readonly string VOICE_APP_ID_KEY = "VOICE_APP_ID";
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "SHUT UP VISUAL STUDIO")]
         private void Awake()
         {

@@ -13,11 +13,11 @@ namespace SelfSufficient.Patches
         [HarmonyPatch(nameof(SteamLobbyHandler.JoinLobby))]
         private static bool JoinLobbyPrefix(ref SteamLobbyHandler __instance, CSteamID lobbyID)
         {
-            string? realtimeAppId = SteamMatchmaking.GetLobbyData(lobbyID, SelfSufficient.PUN_APP_ID_KEY);
-            string? voiceAppId = SteamMatchmaking.GetLobbyData(lobbyID, SelfSufficient.VOICE_APP_ID_KEY);
-            if (PhotonAppIDUtilities.AttemptAppIDUpdate(realtimeAppId, voiceAppId) && !PhotonCallbackUtility.TryingToConnectToMasterServer)
+            string? punAppId = SteamMatchmaking.GetLobbyData(lobbyID, PhotonAppIDUtilities.PUN_APP_ID_KEY);
+            string? voiceAppId = SteamMatchmaking.GetLobbyData(lobbyID, PhotonAppIDUtilities.VOICE_APP_ID_KEY);
+            if (PhotonAppIDUtilities.AttemptAppIDUpdate(punAppId, voiceAppId) && !PhotonCallbackUtility.TryingToConnectToMasterServer)
             {
-                SelfSufficient.SelfSufficientLogger?.LogInfo($"Updated AppIDs to {realtimeAppId} and {voiceAppId}");
+                SelfSufficient.SelfSufficientLogger?.LogInfo($"Updated AppIDs to {punAppId} and {voiceAppId}");
                 // Prevent stopping the connection process if we're already connected
                 if (!PhotonNetwork.IsConnectedAndReady)
                 {
@@ -38,8 +38,8 @@ namespace SelfSufficient.Patches
             if (PhotonAppIDUtilities.PersonalyOverriddenAppIDs)
             {
                 CSteamID lobbyId = __instance.m_CurrentLobby;
-                SteamMatchmaking.SetLobbyData(lobbyId, SelfSufficient.PUN_APP_ID_KEY, PhotonAppIDUtilities.CurrentPunAppID);
-                SteamMatchmaking.SetLobbyData(lobbyId, SelfSufficient.VOICE_APP_ID_KEY, PhotonAppIDUtilities.CurrentVoiceAppID);
+                SteamMatchmaking.SetLobbyData(lobbyId, PhotonAppIDUtilities.PUN_APP_ID_KEY, PhotonAppIDUtilities.CurrentPunAppID);
+                SteamMatchmaking.SetLobbyData(lobbyId, PhotonAppIDUtilities.VOICE_APP_ID_KEY, PhotonAppIDUtilities.CurrentVoiceAppID);
                 SelfSufficient.SelfSufficientLogger?.LogInfo($"Set AppIDs to {PhotonAppIDUtilities.CurrentPunAppID} and {PhotonAppIDUtilities.CurrentVoiceAppID}");
             }
         }

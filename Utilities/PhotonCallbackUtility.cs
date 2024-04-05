@@ -38,19 +38,20 @@ namespace SelfSufficient.Utilities
         public static void RejoinLobbyOnMasterServerConnected(SteamLobbyHandler steamLobbyHandler, CSteamID lobbyID)
         {
             if (TryingToConnectToMasterServer) { return; }
-            // Worst hack ever or genius, who knows
-            Action? action = null;
-            action = () => { HandleOnMasterServerConnected(steamLobbyHandler, lobbyID, action); };
-            OnMasterServerConnected += action;
+
+            // Most jank code ever or smartest solution, who knows.
+            Action? rejoinAction = null;
+            rejoinAction = () => { HandleOnMasterServerConnected(steamLobbyHandler, lobbyID, rejoinAction); };
+            OnMasterServerConnected += rejoinAction;
             TryingToConnectToMasterServer = true;
             SelfSufficient.SelfSufficientLogger?.LogInfo("Waiting for master server connection to rejoin lobby");
         }
 
-        public static void HandleOnMasterServerConnected(SteamLobbyHandler steamLobbyHandler, CSteamID lobbyID, Action? action)
+        public static void HandleOnMasterServerConnected(SteamLobbyHandler steamLobbyHandler, CSteamID lobbyID, Action? rejoinAction)
         {
             SelfSufficient.SelfSufficientLogger?.LogInfo($"Rejoining lobby {lobbyID} after AppID update");
             steamLobbyHandler.JoinLobby(lobbyID);
-            OnMasterServerConnected -= action;
+            OnMasterServerConnected -= rejoinAction;
             TryingToConnectToMasterServer = false;
         }
     }
