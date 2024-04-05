@@ -11,7 +11,7 @@ namespace SelfSufficient.Patches
     {
         [HarmonyPrefix]
         [HarmonyPatch(nameof(SteamLobbyHandler.JoinLobby))]
-        private static bool JoinLobbyPrefix(ref SteamLobbyHandler __instance, CSteamID lobbyID)
+        private static bool JoinLobbyPatch(ref SteamLobbyHandler __instance, CSteamID lobbyID)
         {
             if (PhotonCallbackUtility.TryingToConnectToMasterServer)
             {
@@ -48,7 +48,7 @@ namespace SelfSufficient.Patches
 
         [HarmonyPostfix]
         [HarmonyPatch(nameof(SteamLobbyHandler.OnLobbyCreatedCallback))]
-        private static void OnLobbyCreatedCallbackPostfix(ref SteamLobbyHandler __instance)
+        private static void OnLobbyCreatedCallbackPatch(ref SteamLobbyHandler __instance)
         {
             // Override the AppIDs if we have them from the config
             if (PhotonAppIDUtilities.HasPersonalyOverriddenAppIDs)

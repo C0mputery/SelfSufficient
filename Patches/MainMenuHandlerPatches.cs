@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using Photon.Pun;
 using SelfSufficient.Utilities;
 
 namespace SelfSufficient.Patches
@@ -11,7 +12,11 @@ namespace SelfSufficient.Patches
         [HarmonyPatch(nameof(MainMenuHandler.ConnectToPhoton))]
         private static void ConnectToPhotonPatch()
         {
-            if (!PhotonAppIDUtilities.IsUsingDefaultAppIDs)
+            if (PhotonAppIDUtilities.HasPersonalyOverriddenAppIDs)
+            {
+                PhotonAppIDUtilities.UpdateAppIDs(PhotonAppIDUtilities.OverridePunAppID!, PhotonAppIDUtilities.OverrideVoiceAppID!, false);
+            }
+            else if (!PhotonAppIDUtilities.IsUsingDefaultAppIDs)
             {
                 SelfSufficient.SelfSufficientLogger?.LogInfo("Updating AppIDs back to default values");
 

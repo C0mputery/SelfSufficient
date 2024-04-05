@@ -21,8 +21,12 @@ namespace SelfSufficient
             SelfSufficientLogger = base.Logger;
             SelfSufficientLogger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");
 
+            // Config
             SelfSufficientConfigFile = base.Config;
+            SelfSufficientConfigFile?.Bind("Settings", "AppID for PUN", "", "The PUN AppID (Only needed for the host)");
+            SelfSufficientConfigFile?.Bind("Settings", "AppID for VOICE", "", "The VOICE AppID (Defaults to the PUN AppID)");
             SelfSufficientLogger.LogInfo("Config file is loaded!");
+
 
             // Photon Callback Utility
             PhotonCallbackUtility.CreateInstace();
