@@ -12,7 +12,7 @@ These free instances allow for upto 16 player matches.
 Additionally this mod will automatically sync the appID of the host when a lobby is joined, given both clients are using the mod.
 
 ## Video Tutorial
-# - Video Tutorial (recommended): [Here](https://www.youtube.com/watch?v=8Q6J9Q1Q9ZQ)
+# Video Tutorial (recommended): [Here](https://www.youtube.com/watch?v=8Q6J9Q1Q9ZQ)
 
 ## Installation for client (This is without using a mod manager. If you use something like R2ModMan just install it like anything else).
 1. Install BepInEx, and run the game once to generate the BepInEx folder.
