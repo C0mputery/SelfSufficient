@@ -22,7 +22,7 @@ namespace SelfSufficient.Patches
         [HarmonyPatch(nameof(Connection.Start))]
         static IEnumerable<CodeInstruction> ConnectionStartPatch(IEnumerable<CodeInstruction> instructions)
         {
-            SelfSufficient.SelfSufficientLogger!.LogInfo("Transpiler running, should be no more auth values.");
+            SelfSufficient.SelfSufficientLogger!.LogInfo("Transpiler running, should be no more auth values on custom AppId.");
             return new CodeMatcher(instructions)
                 .SearchForward(i => i.opcode == OpCodes.Call && i.OperandIs(AccessTools.Method(typeof(PhotonNetwork), nameof(PhotonNetwork.ConnectToRegion))))
                 .Advance(-1)

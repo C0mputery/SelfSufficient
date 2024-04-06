@@ -59,19 +59,17 @@ namespace SelfSufficient.Utilities
                 SelfSufficient.SelfSufficientLogger?.LogInfo("AppIDs are already set to the provided values or are empty");
                 return false;
             }
-            SelfSufficient.SelfSufficientLogger?.LogInfo($"Can update AppIDs to {PunAppID} and {VoiceAppID}");
+            SelfSufficient.SelfSufficientLogger?.LogInfo($"Can update AppIDs");
             return true;
         }
 
         // Updates the AppIDs and reconnects if needed
         internal static void UpdateAppIDs(string PunAppID, string VoiceAppID, bool forceReconnect)
         {
-            SelfSufficient.SelfSufficientLogger?.LogInfo($"Updating AppIDs to {PunAppID} and {VoiceAppID}");
+            SelfSufficient.SelfSufficientLogger?.LogInfo($"Updating AppIDs");
 
             CurrentPunAppID = PunAppID;
             CurrentVoiceAppID = string.IsNullOrWhiteSpace(VoiceAppID) ? PunAppID : VoiceAppID;
-
-            SelfSufficient.SelfSufficientLogger?.LogInfo($"Updated AppIDs to {PunAppID} and {VoiceAppID}");
 
             if (forceReconnect)
             {

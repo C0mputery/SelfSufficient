@@ -41,7 +41,7 @@ namespace SelfSufficient.Patches
                 return false; // Skip the original method since we're waiting for the master server to connect
             }
 
-            SelfSufficient.SelfSufficientLogger?.LogInfo($"AppIDs are already set to {punAppId} and {voiceAppId}, joining lobby {lobbyID}");
+            SelfSufficient.SelfSufficientLogger?.LogInfo($"AppIDs are already set, joining lobby {lobbyID}");
             return true;
         }
 
@@ -55,7 +55,7 @@ namespace SelfSufficient.Patches
                 CSteamID lobbyId = __instance.m_CurrentLobby;
                 SteamMatchmaking.SetLobbyData(lobbyId, PhotonAppIDUtilities.PUN_APP_ID_KEY, PhotonAppIDUtilities.OverridePunAppID);
                 SteamMatchmaking.SetLobbyData(lobbyId, PhotonAppIDUtilities.VOICE_APP_ID_KEY, PhotonAppIDUtilities.OverrideVoiceAppID);
-                SelfSufficient.SelfSufficientLogger?.LogInfo($"Set steam lobby AppIDs to {PhotonAppIDUtilities.CurrentPunAppID} and {PhotonAppIDUtilities.CurrentVoiceAppID}");
+                SelfSufficient.SelfSufficientLogger?.LogInfo($"Set steam lobby AppIDs");
             }
         }
     }
