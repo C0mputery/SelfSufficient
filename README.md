@@ -45,3 +45,5 @@ You will need to edit this file and add your own appID. To get these you will ne
 # Special Thanks
 - [Anthony Stainton](https://github.com/ItzRock): Tech Support Help! Would not have been able to finish this if I had to help every person in the, in addition they made an excellent tutorial video.
 - [Bobbie](https://github.com/legoandmars/Virality): Original idea for syncing AppID's over the Steam Lobby.
+- [CammanderCat]
+- [dhkatz]
