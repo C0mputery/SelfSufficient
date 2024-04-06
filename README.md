@@ -45,5 +45,11 @@ You will need to edit this file and add your own appID. To get these you will ne
 # Special Thanks
 - [Anthony Stainton](https://github.com/ItzRock): Tech Support Help! Would not have been able to finish this if I had to help every person in the, in addition they made an excellent tutorial video.
 - [Bobbie](https://github.com/legoandmars/Virality): Original idea for syncing AppID's over the Steam Lobby.
-- [CammanderCat]
-- [dhkatz]
+- [CammanderCat](https://github.com/Commander-Cat101/) - Transpiler help.
+- [dhkatz](https://github.com/dhkatz) - Made the codeInstruction transpiler in ConnectionPatches.
+
+# FAQ
+- Does everybody need the config or just the host?
+  - Only the host needs the config.
+ 
+# If You are on [ThunderStore](https://thunderstore.io/c/content-warning/p/Computery/Self_Sufficient/) go to [GitHub](https://github.com/C0mputery/SelfSufficient) to see a more upto date FAQ.
