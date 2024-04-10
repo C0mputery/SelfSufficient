@@ -3,7 +3,6 @@ using BepInEx.Configuration;
 using BepInEx.Logging;
 using HarmonyLib;
 using SelfSufficient.Utilities;
-using Steamworks;
 using System.Reflection;
 
 namespace SelfSufficient

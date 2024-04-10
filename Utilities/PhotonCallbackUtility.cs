@@ -15,7 +15,7 @@ namespace SelfSufficient.Utilities
         {
             if (m_Instance == null)
             {
-                GameObject photonCallbackUtilityGameObject = new GameObject("PhotonCallbackUtility");
+                GameObject photonCallbackUtilityGameObject = new("PhotonCallbackUtility");
                 DontDestroyOnLoad(photonCallbackUtilityGameObject);
                 m_Instance = photonCallbackUtilityGameObject.AddComponent<PhotonCallbackUtility>();
             }
