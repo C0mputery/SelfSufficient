@@ -10,7 +10,7 @@ namespace SelfSufficient.Utilities
         // Singleton, but not really
         private static PhotonCallbackUtility? m_Instance;
 
-        // Fake singleton pattern
+        // Fake ass singleton pattern
         public static void CreateInstace()
         {
             if (m_Instance == null)
@@ -42,15 +42,15 @@ namespace SelfSufficient.Utilities
             void rejoinAction() { HandleRejoinOnMasterServerConnected(steamLobbyHandler, lobbyID, rejoinAction); }
             OnMasterServerConnected += rejoinAction;
             TryingToConnectToMasterServer = true;
-            SelfSufficient.SelfSufficientLogger?.LogInfo("Waiting for master server connection to rejoin lobby");
+            SelfSufficient.SelfSufficientLogger!.LogInfo("Waiting for master server connection to rejoin lobby");
         }
         public static void HandleRejoinOnMasterServerConnected(SteamLobbyHandler steamLobbyHandler, CSteamID lobbyID, Action? rejoinAction)
         {
-            SelfSufficient.SelfSufficientLogger?.LogInfo($"Starting lobby rejoin {lobbyID} after AppID update");
+            SelfSufficient.SelfSufficientLogger!.LogInfo($"Starting lobby rejoin {lobbyID} after AppID update");
             OnMasterServerConnected -= rejoinAction;
             TryingToConnectToMasterServer = false;
             steamLobbyHandler.JoinLobby(lobbyID);
-            SelfSufficient.SelfSufficientLogger?.LogInfo("Rejoined lobby");
+            SelfSufficient.SelfSufficientLogger!.LogInfo("Rejoined lobby");
         }
 
         // Rehost the save after the master server is connected
@@ -61,15 +61,15 @@ namespace SelfSufficient.Utilities
             void rehostAction() { HandleOnMasterServerConnected(mainMenuHandler, saveIndex, rehostAction); }
             OnMasterServerConnected += rehostAction;
             TryingToConnectToMasterServer = true;
-            SelfSufficient.SelfSufficientLogger?.LogInfo("Waiting for master server connection to rejoin lobby");
+            SelfSufficient.SelfSufficientLogger!.LogInfo("Waiting for master server connection to rejoin lobby");
         }
         public static void HandleOnMasterServerConnected(MainMenuHandler mainMenuHandler, int saveIndex, Action? rehostAction)
         {
-            SelfSufficient.SelfSufficientLogger?.LogInfo($"Rehosting save {saveIndex} after AppID update");
+            SelfSufficient.SelfSufficientLogger!.LogInfo($"Rehosting save {saveIndex} after AppID update");
             OnMasterServerConnected -= rehostAction;
             TryingToConnectToMasterServer = false;
             mainMenuHandler.Host(saveIndex);
-            SelfSufficient.SelfSufficientLogger?.LogInfo("Rehosted save");
+            SelfSufficient.SelfSufficientLogger!.LogInfo("Rehosted save");
         }
     }
 }

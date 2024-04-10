@@ -2,12 +2,13 @@
 using BepInEx.Configuration;
 using BepInEx.Logging;
 using HarmonyLib;
-using Photon.Pun;
 using SelfSufficient.Utilities;
+using Steamworks;
 using System.Reflection;
 
 namespace SelfSufficient
 {
+    [ContentWarningPlugin(PluginInfo.PLUGIN_GUID, PluginInfo.PLUGIN_VERSION, true)]
     [BepInPlugin(PluginInfo.PLUGIN_GUID, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
     public class SelfSufficient : BaseUnityPlugin
     {
@@ -23,10 +24,9 @@ namespace SelfSufficient
 
             // Config
             SelfSufficientConfigFile = base.Config;
-            SelfSufficientConfigFile?.Bind("Settings", "AppID for PUN", "", "The PUN AppID (Only needed for the host)"); // This creates the config file if it doesn't exist
-            SelfSufficientConfigFile?.Bind("Settings", "AppID for VOICE", "", "The VOICE AppID (Defaults to the PUN AppID)"); // This creates the config file if it doesn't exist
+            SelfSufficientConfigFile.Bind("Settings", "AppID for PUN", "", "The PUN AppID (Only needed for the host)"); // This creates the config file if it doesn't exist
+            SelfSufficientConfigFile.Bind("Settings", "AppID for VOICE", "", "The VOICE AppID (Defaults to the PUN AppID)"); // This creates the config file if it doesn't exist
             SelfSufficientLogger.LogInfo("Config file is loaded!");
-
 
             // Photon Callback Utility
             PhotonCallbackUtility.CreateInstace();

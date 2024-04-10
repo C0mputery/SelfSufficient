@@ -31,17 +31,17 @@ namespace SelfSufficient.Patches
                 // Prevent starting the connection process if we're already somehow connected
                 if (PhotonNetwork.IsConnectedAndReady)
                 {
-                    SelfSufficient.SelfSufficientLogger?.LogInfo($"Already connected to the master server, joining lobby {lobbyID}");
+                    SelfSufficient.SelfSufficientLogger!.LogInfo($"Already connected to the master server, joining lobby {lobbyID}");
                     return true;
                 }
 
                 // Wait for the master server to connect before rejoining the lobby
                 PhotonCallbackUtility.RejoinLobbyOnMasterServerConnected(__instance, lobbyID);
-                SelfSufficient.SelfSufficientLogger?.LogInfo($"Rejoining lobby {lobbyID} after AppID update");
+                SelfSufficient.SelfSufficientLogger!.LogInfo($"Rejoining lobby {lobbyID} after AppID update");
                 return false; // Skip the original method since we're waiting for the master server to connect
             }
 
-            SelfSufficient.SelfSufficientLogger?.LogInfo($"AppIDs are already set, joining lobby {lobbyID}");
+            SelfSufficient.SelfSufficientLogger!.LogInfo($"AppIDs are already set, joining lobby {lobbyID}");
             return true;
         }
 
@@ -55,7 +55,7 @@ namespace SelfSufficient.Patches
                 CSteamID lobbyId = __instance.m_CurrentLobby;
                 SteamMatchmaking.SetLobbyData(lobbyId, PhotonAppIDUtilities.PUN_APP_ID_KEY, PhotonAppIDUtilities.OverridePunAppID);
                 SteamMatchmaking.SetLobbyData(lobbyId, PhotonAppIDUtilities.VOICE_APP_ID_KEY, PhotonAppIDUtilities.OverrideVoiceAppID);
-                SelfSufficient.SelfSufficientLogger?.LogInfo($"Set steam lobby AppIDs");
+                SelfSufficient.SelfSufficientLogger!.LogInfo($"Set steam lobby AppIDs");
             }
         }
     }
