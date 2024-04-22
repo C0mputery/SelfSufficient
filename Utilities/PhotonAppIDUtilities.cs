@@ -15,14 +15,14 @@ namespace SelfSufficient.Utilities
         {
             get
             {
-                return !string.IsNullOrWhiteSpace(OverridePunAppID) && !string.IsNullOrWhiteSpace(OverrideVoiceAppID);
+                return !(string.IsNullOrWhiteSpace(OverridePunAppID) && string.IsNullOrWhiteSpace(OverrideVoiceAppID));
             }
         }
-        internal static string? OverridePunAppID
+        internal static string OverridePunAppID
         {
             get { return SelfSufficient.SelfSufficientConfigFile!.Bind("Settings", "AppID for PUN", "", "The PUN AppID (Only needed for the host)").Value; }
         }
-        internal static string? OverrideVoiceAppID
+        internal static string OverrideVoiceAppID
         {
             get
             {

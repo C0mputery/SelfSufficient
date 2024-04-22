@@ -44,7 +44,7 @@ namespace SelfSufficient.Utilities
             TryingToConnectToMasterServer = true;
             SelfSufficient.SelfSufficientLogger!.LogInfo("Waiting for master server connection to rejoin lobby");
         }
-        public static void HandleRejoinOnMasterServerConnected(SteamLobbyHandler steamLobbyHandler, CSteamID lobbyID, Action? rejoinAction)
+        public static void HandleRejoinOnMasterServerConnected(SteamLobbyHandler steamLobbyHandler, CSteamID lobbyID, Action rejoinAction)
         {
             SelfSufficient.SelfSufficientLogger!.LogInfo($"Starting lobby rejoin {lobbyID} after AppID update");
             OnMasterServerConnected -= rejoinAction;
@@ -63,7 +63,7 @@ namespace SelfSufficient.Utilities
             TryingToConnectToMasterServer = true;
             SelfSufficient.SelfSufficientLogger!.LogInfo("Waiting for master server connection to rejoin lobby");
         }
-        public static void HandleOnMasterServerConnected(MainMenuHandler mainMenuHandler, int saveIndex, Action? rehostAction)
+        public static void HandleOnMasterServerConnected(MainMenuHandler mainMenuHandler, int saveIndex, Action rehostAction)
         {
             SelfSufficient.SelfSufficientLogger!.LogInfo($"Rehosting save {saveIndex} after AppID update");
             OnMasterServerConnected -= rehostAction;

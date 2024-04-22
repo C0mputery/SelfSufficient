@@ -5,7 +5,7 @@
     <AssemblyName>Computery.SelfSufficient</AssemblyName>
     <Authors>Computery</Authors>
     <Description>Run your own Photon instance.</Description>
-    <Version>3.2.0</Version>
+    <Version>3.3.0</Version>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>

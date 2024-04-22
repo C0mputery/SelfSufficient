@@ -10,7 +10,7 @@ using System.Reflection.Emit;
 namespace SelfSufficient.Patches
 {
     [HarmonyPatch(typeof(Connection))]
-    [HarmonyPatch("CheckForErrors")]
+    [HarmonyPriority(Priority.First + 1)]
     public static class ConnectionPatches
     {
         internal static void UpdateAuthType()

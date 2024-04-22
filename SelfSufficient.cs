@@ -34,6 +34,8 @@ namespace SelfSufficient
             // Harmony
             Harmony.CreateAndPatchAll(Assembly.GetExecutingAssembly());
             SelfSufficientLogger.LogInfo("Patched all Harmony patches");
+
+            SelfSufficientLogger.LogInfo(PhotonAppIDUtilities.HasPersonalyOverriddenAppIDs ? "Using custom Photon AppIds for hosting." : "Using default Photon AppIds for hosting");
         }
     }
 }
